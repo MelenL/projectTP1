@@ -13,6 +13,6 @@ class DeleteContactController {
         // Inclure la vue pour afficher la confirmation de suppression du contact
        
     }
-}
+
 ?>
 
