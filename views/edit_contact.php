@@ -7,26 +7,26 @@
 </head>
 <body>
     <h1>Modifier un Contact</h1>
-    <a href="index.php">Retour à la liste des contacts</a>
+    <a href="index.php">Retour ï¿½ la liste des contacts</a>
 
 
-        <form action="modifier_contact.php?id=<?php echo echo ???; ?>" method="post">
+        <form action="modifier_contact.php?id=<?php echo ""; ?>" method="post">
             <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" value="<?php echo echo ???; ?>" required><br>
+            <input type="text" id="nom" name="nom" value="<?php echo ""; ?>" required><br>
 
-            <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" value="<?php echo echo ???; ?>" required><br>
+            <label for="prenom">Prï¿½nom :</label>
+            <input type="text" id="prenom" name="prenom" value="<?php echo ""; ?>" required><br>
 
             <label for="email">Email :</label>
-            <input type="email" id="email" name="email" value="<?php echo echo ???; ?>"><br>
+            <input type="email" id="email" name="email" value="<?php echo ""; ?>"><br>
 
-            <label for="telephone">Téléphone :</label>
-            <input type="text" id="telephone" name="telephone" value="<?php echo echo ???; ?>"><br>
+            <label for="telephone">Tï¿½lï¿½phone :</label>
+            <input type="text" id="telephone" name="telephone" value="<?php echo ""; ?>"><br>
 
             <input type="submit" value="Modifier">
         </form>
 
-        <p>Le contact n'a pas été trouvé.</p>
+        <p>Le contact n'a pas ï¿½tï¿½ trouvï¿½.</p>
 
 
 </body>

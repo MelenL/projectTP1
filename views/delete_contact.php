@@ -7,15 +7,15 @@
 </head>
 <body>
     <h1>Supprimer un Contact</h1>
-    <a href="index.php">Retour à la liste des contacts</a>
+    <a href="index.php">Retour ï¿½ la liste des contacts</a>
 
 
-        <p>Voulez-vous vraiment supprimer le contact "<?php echo ???; ?> <?phpecho ???; ?>" ?</p>
-        <form action="supprimer_contact.php?id=<?php echo ???; ?>" method="post">
+        <p>Voulez-vous vraiment supprimer le contact "<?php echo "???"; ?> <?php echo ""; ?>" ?</p>
+        <form action="supprimer_contact.php?id=<?php echo ""; ?>" method="post">
             <input type="submit" value="Oui, Supprimer">
         </form>
    
-        <p>Le contact n'a pas été trouvé.</p>
+        <p>Le contact n'a pas ï¿½tï¿½ trouvï¿½.</p>
 
 
 </body>

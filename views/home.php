@@ -23,14 +23,14 @@
             <tbody>
 
                     <tr>
-                        <td><?php echo ???; ?></td>
-                        <td><?php echo ???; ?></td>
-                        <td><?php echo ???; ?></td>
-                        <td><?php echo ???; ?></td>
+                        <td><?php echo "???"; ?></td>
+                        <td><?php echo "???"; ?></td>
+                        <td><?php echo "???"; ?></td>
+                        <td><?php echo"???"; ?></td>
                         <td>
-                            <a href="voir_contact.php?id=<?php echo echo ???; ?>">Voir</a>
-                            <a href="modifier_contact.php?id=<?php echo ???; ?>">Modifier</a>
-                            <a href="supprimer_contact.php?id=<?php echo ???; ?>">Supprimer</a>
+                            <a href="voir_contact.php?id=<?php echo ""; ?>">Voir</a>
+                            <a href="modifier_contact.php?id=<?php echo "???;"; ?>">Modifier</a>
+                            <a href="supprimer_contact.php?id=<?php echo "???;"; ?>">Supprimer</a>
                         </td>
                     </tr>
             
