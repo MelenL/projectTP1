@@ -13,13 +13,18 @@ class ContactDAO {
         
         $sql = "INSERT INTO contacts (nom,prenom,email,telephone) VALUES (:nom, :prenom, :email, :telephone)"; //On enregistre dans une variable notre requête SQL
 
+        $nom1 = $contact->getNom();
+        $prenom1 = $contact->getPrenom();
+        $email1 = $contact->getEmail(); 
+        $telephone1 = $contact->getTelephone();
+
         $stmt = $pdo->prepare($sql); //On prépare notre requête.
 
         //On remplace mes VALUES par nos paramètres.
-        $stmt->bindParam(':nom', $nom);
-        $stmt->bindParam(':prenom', $prenom);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':telephone', $telephone);
+        $stmt->bindParam(':nom', $nom1);
+        $stmt->bindParam(':prenom', $prenom1);
+        $stmt->bindParam(':email', $email1);
+        $stmt->bindParam(':telephone', $telephone1);
 
         $stmt->execute(); //On execute notre requête
     }
@@ -37,6 +42,9 @@ class ContactDAO {
         $stmt->bindParam(':id', $id);
 
         $stmt->execute(); //On execute notre requête
+
+        return $stmt->fetch(PDO::FETCH_ASSOC); //Le rend dans une ligne
+
     }
 
     // Méthode pour récupérer la liste de tous les contacts
@@ -49,6 +57,8 @@ class ContactDAO {
         $stmt = $pdo->prepare($sql); //On prépare notre requête.
         
         $stmt->execute(); //On execute notre requête
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); //Le rend dans un tableau
     }
 
     // Méthode pour mettre à jour un contact

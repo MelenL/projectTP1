@@ -7,28 +7,38 @@
 </head>
 <body>
     <h1>Ajouter un Contact</h1>
-    <a href="index.php">Retour à la liste des contacts</a>
+    <a href="index.php">Retour Ã  la liste des contacts</a>
 
-    <form action="ajouter_contact.php" method="post">
+    <form action="add_contact.php" method="post">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required><br>
 
-        <label for="prenom">Prénom :</label>
+        <label for="prenom">PrÃ©nom :</label>
         <input type="text" id="prenom" name="prenom" required><br>
 
         <label for="email">Email :</label>
         <input type="email" id="email" name="email"><br>
 
-        <label for="telephone">Téléphone :</label>
+        <label for="telephone">TÃ©lÃ©phone :</label>
         <input type="text" id="telephone" name="telephone"><br>
 
         <input type="submit" value="Ajouter">
     </form>
 
     <?php
-    // Inclure ici la logique pour traiter le formulaire d'ajout de contact
+    include_once '../controllers/AddContactController.php'; 
+    include_once '../classes/dao/ContactDAO.php'; 
+    require_once '../classes/models/ContactModel.php'; 
+    require_once '../config/config.php';
+    
+
+
+    $contactDAO = new ContactDAO($pdo);
+
+    $addContactController = new AddContactController($contactDAO);
+
+    $addContactController->addContact();
     ?>
 
 </body>
 </html>
-

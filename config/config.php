@@ -1,6 +1,6 @@
 <?php
 // Informations de connexion à la base de données
-$host = "localhost"; // L'hôte de la base de données (généralement "localhost")
+$host = "localhost:8889"; // L'hôte de la base de données (généralement "localhost")
 $database = "contacts"; // Le nom de la base de données que vous avez créée
 $username = "root"; // Votre nom d'utilisateur MySQL
 $password = "root"; // Votre mot de passe MySQL

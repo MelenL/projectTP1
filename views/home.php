@@ -7,16 +7,16 @@
 </head>
 <body>
     <h1>Liste des Contacts</h1>
-    <a href="ajouter_contact.php">Ajouter un contact</a>
+    <a href="add_contact.php">Ajouter un contact</a>
 
 
         <table>
             <thead>
                 <tr>
                     <th>Nom</th>
-                    <th>Prénom</th>
+                    <th>Prï¿½nom</th>
                     <th>Email</th>
-                    <th>Téléphone</th>
+                    <th>Tï¿½lï¿½phone</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -37,7 +37,7 @@
             </tbody>
         </table>
 
-        <p>Aucun contact trouvé.</p>
+        <p>Aucun contact trouvï¿½.</p>
 
 </body>
 </html>

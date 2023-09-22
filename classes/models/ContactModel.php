@@ -6,8 +6,7 @@ class ContactModel {
     private $email;
     private $telephone;
     
-    public function __construct($id, $nom, $prenom, $email, $telephone) { //Création d'un contact
-        $this->id = $id;
+    public function __construct($nom, $prenom, $email, $telephone) {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
