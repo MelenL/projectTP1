@@ -37,7 +37,7 @@
             </tbody>
         </table>
 
-        <p>Aucun contact trouv�.</p>
+        <p>Aucun contact trouvé.</p>
 
 </body>
 </html>
