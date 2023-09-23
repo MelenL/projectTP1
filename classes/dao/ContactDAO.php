@@ -13,18 +13,18 @@ class ContactDAO {
         
         $sql = "INSERT INTO contacts (nom,prenom,email,telephone) VALUES (:nom, :prenom, :email, :telephone)"; //On enregistre dans une variable notre requête SQL
 
-        $nom1 = $contact->getNom();
-        $prenom1 = $contact->getPrenom();
-        $email1 = $contact->getEmail(); 
-        $telephone1 = $contact->getTelephone();
+        $nom = $contact->getNom();
+        $prenom = $contact->getPrenom();
+        $email= $contact->getEmail(); 
+        $telephone = $contact->getTelephone();
 
         $stmt = $pdo->prepare($sql); //On prépare notre requête.
 
         //On remplace mes VALUES par nos paramètres.
-        $stmt->bindParam(':nom', $nom1);
-        $stmt->bindParam(':prenom', $prenom1);
-        $stmt->bindParam(':email', $email1);
-        $stmt->bindParam(':telephone', $telephone1);
+        $stmt->bindParam(':nom', $nom);
+        $stmt->bindParam(':prenom', $prenom);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':telephone', $telephone);
 
         $stmt->execute(); //On execute notre requête
     }
@@ -67,6 +67,12 @@ class ContactDAO {
         global $pdo; 
         
         $sql = "UPDATE contacts SET nom = :nom, prenom = :prenom, email = :email, telephone = :telephone WHERE id = :id"; //On enregistre dans une variable notre requête SQL
+
+        $id = $contact->getId();
+        $nom = $contact->getNom();
+        $prenom = $contact->getPrenom();
+        $email= $contact->getEmail(); 
+        $telephone = $contact->getTelephone();
 
         $stmt = $pdo->prepare($sql); //On prépare notre requête.
 

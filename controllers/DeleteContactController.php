@@ -7,12 +7,15 @@ class DeleteContactController {
     }
 
     public function deleteContact($contactId) {
-       
-        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        // Inclure la vue pour afficher la confirmation de suppression du contact
-       
+            // Utilisation de ContactDAO pour supprimer le contact
+            $this->contactDAO->deleteById($contactId);
+
+        }
     }
 
+       
+}
 ?>
 

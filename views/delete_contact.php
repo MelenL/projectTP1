@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Supprimer un Contact</h1>
-    <a href="index.php">Retour � la liste des contacts</a>
+    <a href="index.php">Retour à la liste des contacts</a>
 
 
         <p>Voulez-vous vraiment supprimer le contact "<?php echo "???"; ?> <?php echo ""; ?>" ?</p>
@@ -15,7 +15,24 @@
             <input type="submit" value="Oui, Supprimer">
         </form>
    
-        <p>Le contact n'a pas �t� trouv�.</p>
+        <p>Le contact n'a pas été trouvé.</p>
+
+        <?php
+        include_once '../controllers/DeleteContactController.php'; 
+        include_once '../classes/dao/ContactDAO.php'; 
+        require_once '../classes/models/ContactModel.php'; 
+        require_once '../config/config.php';
+        
+
+
+        //Mettre le contact visé par la suprression est récupérer son ID
+
+        $id= "???";
+
+        $deleteContactController = new DeleteContactController($contactDAO);
+
+        $deleteContactController->deleteContact($id);
+        ?>
 
 
 </body>

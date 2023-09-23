@@ -14,9 +14,9 @@
             <thead>
                 <tr>
                     <th>Nom</th>
-                    <th>Pr�nom</th>
+                    <th>Prénom</th>
                     <th>Email</th>
-                    <th>T�l�phone</th>
+                    <th>Téléphone</th>  
                     <th>Action</th>
                 </tr>
             </thead>

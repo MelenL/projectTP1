@@ -22,8 +22,6 @@ class AddContactController {
             // Utilisation de ContactDAO pour ajouter le contact
             $this->contactDAO->create($nouveauContact);
 
-        } else {
-            
         }
     }
 }
