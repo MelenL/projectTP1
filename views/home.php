@@ -23,6 +23,14 @@
 <body>
     <div class="container">
         <h1 class="display-6 border-bottom border-dark mb-3">Liste des Contacts</h1>
+
+        <form class="mb-3">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Rechercher un contact">
+                <button class="btn btn-dark" type="button">Rechercher</button>
+            </div>
+        </form>
+
         <div class="card mb-3">
             <?php if (!empty($tableauContact)) : ?>
                 <table class="table">
