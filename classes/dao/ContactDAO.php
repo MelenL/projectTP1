@@ -43,7 +43,9 @@ class ContactDAO {
 
         $stmt->execute(); //On execute notre requête
 
-        return $stmt->fetch(PDO::FETCH_ASSOC); //Le rend dans une ligne
+        $result = $stmt->fetch(PDO::FETCH_ASSOC); //Le rend dans une ligne
+
+        return $result ? $result : false; //Si vide, on rend faux
 
     }
 
@@ -62,13 +64,13 @@ class ContactDAO {
     }
 
     // Méthode pour mettre à jour un contact
-    public function update(ContactModel $contact) {
+    public function update(ContactModel $contact,$contactID) {
         //On importe notre variable global de connexion.
         global $pdo; 
         
         $sql = "UPDATE contacts SET nom = :nom, prenom = :prenom, email = :email, telephone = :telephone WHERE id = :id"; //On enregistre dans une variable notre requête SQL
 
-        $id = $contact->getId();
+        $id = $contactID;
         $nom = $contact->getNom();
         $prenom = $contact->getPrenom();
         $email= $contact->getEmail(); 

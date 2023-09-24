@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Ajouter un Contact</h1>
-    <a href="index.php">Retour à la liste des contacts</a>
+    <a href="../views/home.php">Retour à la liste des contacts</a>
 
     <form action="add_contact.php" method="post">
         <label for="nom">Nom :</label>

@@ -7,11 +7,9 @@ class ViewContactController {
     }
 
     public function viewContact($contactId) {
-        // Récupérer le contact à afficher en utilisant son ID
-     
+        $contact = $this->contactDAO->getById($contactId);
 
-        // Inclure la vue pour afficher les détails du contact
-       
+        return $contact ?? false; //On retourne un contact sinon faux.
     }
 }
 ?>

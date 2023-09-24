@@ -7,11 +7,25 @@ class EditContactController {
     }
 
     public function editContact($contactId) {
-        
-        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $email = $_POST['email'];
+            $telephone = $_POST['telephone'];
 
-        // Inclure la vue pour afficher le formulaire de modification du contact
+
+            // Création de l'instance ContactModel
+            $nouveauContact = new ContactModel($nom, $prenom, $email, $telephone);
+
+            // Utilisation de ContactDAO pour ajouter le contact
+            $this->contactDAO->update($nouveauContact,$contactId);
+
+        }
     }
+
+    
+}
 
 ?>
 

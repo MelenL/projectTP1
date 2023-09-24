@@ -6,12 +6,11 @@ class HomeController {
         $this->contactDAO = $contactDAO;
     }
 
-    public function index() {
+     public function index() {
         // Récupérer la liste de tous les contacts depuis le modèle
-       
+        $tableauContact = $this->contactDAO->getAll();
 
-        // Inclure la vue pour afficher la liste des contacts
-       
+        return $tableauContact;
     }
 }
 ?>

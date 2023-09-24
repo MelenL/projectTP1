@@ -1,3 +1,18 @@
+<?php
+        include_once '../controllers/ViewContactController.php'; 
+        include_once '../classes/dao/ContactDAO.php'; 
+        require_once '../classes/models/ContactModel.php'; 
+        require_once '../config/config.php';
+
+        $id= $_GET['id'];
+
+        $contactDAO = new ContactDAO($pdo);
+
+        $viewContactController = new ViewContactController($contactDAO);
+
+        $contact = $viewContactController->viewContact($id);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,13 +22,13 @@
 </head>
 <body>
     <h1>Détails du Contact</h1>
-    <a href="index.php">Retour à la liste des contacts</a>
+    <a href="../views/home.php">Retour à la liste des contacts</a>
 
 
-        <p><strong>Nom :</strong> <?php echo ""; ?></p>
-        <p><strong>Prénom :</strong> <?php echo ""; ?></p>
-        <p><strong>Email :</strong> <?php echo ""; ?></p>
-        <p><strong>Téléphone :</strong> <?php echo ""; ?></p>
+        <p><strong>Nom :</strong> <?php echo $contact['nom']; ?></p>
+        <p><strong>Prénom :</strong> <?php echo $contact['prenom']; ?></p>
+        <p><strong>Email :</strong> <?php echo $contact['email']; ?></p>
+        <p><strong>Téléphone :</strong> <?php echo $contact['telephone']; ?></p>
 
         <p>Le contact n'a pas été trouvé.</p>
 
