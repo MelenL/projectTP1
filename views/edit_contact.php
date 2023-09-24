@@ -29,28 +29,44 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>Modifier un Contact</h1>
-    <a href="../views/home.php">Retour à la liste des contacts</a>
-    <?php if ($contactDAO->getById($id)) : ?>
-        <form action="edit_contact.php?id=<?php echo $_GET['id']; ?>" method="post">
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" value="<?php echo $nom; ?>" required><br>
+    <div class="container">
+        <h1 class="display-6 mb-3 border-bottom border-dark">Modifier un Contact</h1>
+        <div class="form-group mb-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <?php if ($contactDAO->getById($id)) : ?>
+                        <form action="edit_contact.php?id=<?php echo $_GET['id']; ?>" method="post" class="form">
+                            <div class="form-group">
+                                <label for="nom"><strong>Nom :</strong></label>
+                                <input type="text" id="nom" name="nom" value="<?php echo $nom; ?>" required class="form-control"><br>
+                            </div>
 
-            <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" value="<?php echo $prenom; ?>" required><br>
+                            <div class="form-group">
+                                <label for="prenom"><strong>Prénom :</strong></label>
+                                <input type="text" id="prenom" name="prenom" value="<?php echo $prenom; ?>" required class="form-control"><br>
+                            </div>
 
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" value="<?php echo $email; ?>"><br>
+                            <div class="form-group">
+                                <label for="email"><strong>Email :</strong></label>
+                                <input type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control"><br>
+                            </div>
 
-            <label for="telephone">Téléphone :</label>
-            <input type="text" id="telephone" name="telephone" value="<?php echo $telephone; ?>"><br>
+                            <div class="form-group">
+                                <label for="telephone"><strong>Téléphone :</strong></label>
+                                <input type="text" id="telephone" name="telephone" value="<?php echo $telephone; ?>" class="form-control"><br>
+                            </div>
+                            
+                            <input type="submit" value="Modifier" class="btn btn-success">
+                        </form>
+                    </div>
+                </div>
+        </div>
+        <?php else : ?>
+            <p class="alert alert-warning">Le contact n'a pas été trouvé.</p>
+        <?php endif; ?>
+        <a href="../views/home.php" class="btn btn-secondary">Retour à la liste des contacts</a>
+    <div class="container">
 
-            <input type="submit" value="Modifier">
-        </form>
-    <?php else : ?>
-        <p>Le contact n'a pas été trouvé.</p>
-    <?php endif; ?>
-       
 
 </body>
 </html>
