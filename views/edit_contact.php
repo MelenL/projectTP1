@@ -8,10 +8,10 @@
 
         $contactDAO = new ContactDAO($pdo);
 
-        $prenom = $contactDAO->getById($id)['prenom'];
-        $nom = $contactDAO->getById($id)['nom'];
-        $email = $contactDAO->getById($id)['email'];
-        $telephone = $contactDAO->getById($id)['telephone'];
+        $prenom = $contactDAO->getById($id)['prenom'] ?? ""; //Dans le cas où c'est null.
+        $nom = $contactDAO->getById($id)['nom'] ?? "";
+        $email = $contactDAO->getById($id)['email'] ?? "";
+        $telephone = $contactDAO->getById($id)['telephone'] ?? "";
 
         $contactDAO = new ContactDAO($pdo);
 
@@ -30,8 +30,7 @@
 <body>
     <h1>Modifier un Contact</h1>
     <a href="../views/home.php">Retour à la liste des contacts</a>
-
-
+    <?php if ($contactDAO->getById($id)) : ?>
         <form action="edit_contact.php?id=<?php echo $_GET['id']; ?>" method="post">
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" value="<?php echo $nom; ?>" required><br>
@@ -47,9 +46,10 @@
 
             <input type="submit" value="Modifier">
         </form>
-
+    <?php else : ?>
         <p>Le contact n'a pas été trouvé.</p>
-
+    <?php endif; ?>
+       
 
 </body>
 </html>

@@ -1,3 +1,17 @@
+<?php
+
+    require_once '../controllers/HomeController.php';
+    include_once '../classes/dao/ContactDAO.php'; 
+    require_once '../classes/models/ContactModel.php'; 
+    require_once '../config/config.php'; 
+
+    $contactDAO = new ContactDAO($pdo);
+
+    $contacts = new HomeController($contactDAO); 
+
+    $tableauContact = $contacts->index(); //Liste de tout les contacts
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,6 +22,7 @@
 <body>
     <h1>Liste des Contacts</h1>
     <a href="add_contact.php">Ajouter un contact</a>
+    <?php if (!empty($tableauContact)) : ?>
         <table>
             <thead>
                 <tr>
@@ -18,21 +33,6 @@
                     <th>Action</th>
                 </tr>
             </thead>
-
-            <?php
-
-                require_once '../controllers/HomeController.php';
-                include_once '../classes/dao/ContactDAO.php'; 
-                require_once '../classes/models/ContactModel.php'; 
-                require_once '../config/config.php'; 
-
-                $contactDAO = new ContactDAO($pdo);
-
-                $contacts = new HomeController($contactDAO); 
-
-                $tableauContact = $contacts->index(); //Liste de tout les contacts
-            ?>
-
             <tbody>
                 <?php foreach ($tableauContact as $contact) : ?>
                     <tr>
@@ -48,9 +48,10 @@
                     </tr>
                 <?php endforeach; ?>
             </tbody>
-        </table>
-
-        <p>Aucun contact trouvé.</p>
+            </table>
+        <?php else : ?>
+            <p>Aucun contact trouvé.</p>
+        <?php endif; ?>
 
         
 

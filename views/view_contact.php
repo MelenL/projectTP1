@@ -23,15 +23,14 @@
 <body>
     <h1>Détails du Contact</h1>
     <a href="../views/home.php">Retour à la liste des contacts</a>
-
-
+    <?php if ($contact) : ?>
         <p><strong>Nom :</strong> <?php echo $contact['nom']; ?></p>
         <p><strong>Prénom :</strong> <?php echo $contact['prenom']; ?></p>
         <p><strong>Email :</strong> <?php echo $contact['email']; ?></p>
         <p><strong>Téléphone :</strong> <?php echo $contact['telephone']; ?></p>
-
+    <?php else : ?>    
         <p>Le contact n'a pas été trouvé.</p>
-
+    <?php endif; ?>
 </body>
 </html>
 

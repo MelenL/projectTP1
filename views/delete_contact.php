@@ -8,8 +8,8 @@
 
         $contactDAO = new ContactDAO($pdo);
 
-        $prenom = $contactDAO->getById($id)['prenom'];
-        $nom = $contactDAO->getById($id)['nom'];
+        $prenom = $contactDAO->getById($id)['prenom'] ?? ""; //Au cas où c'est nul
+        $nom = $contactDAO->getById($id)['nom'] ?? "";
 
         $deleteContactController = new DeleteContactController($contactDAO);
 
@@ -26,14 +26,15 @@
 <body>
     <h1>Supprimer un Contact</h1>
     <a href="../views/home.php">Retour à la liste des contacts</a>
-
-
+    <?php if ($contactDAO->getById($id)) : ?>
         <p>Voulez-vous vraiment supprimer le contact "<?php echo $prenom; ?> <?php echo $nom; ?>" ?</p>
         <form action="delete_contact.php?id=<?php echo $_GET['id']; ?>" method="post">
             <input type="submit" value="Oui, Supprimer">
         </form>
-
+    <?php else : ?>
         <p> Le contact n'a pas été trouvé. </p>
+    <?php endif; ?>
+
 </body>
 </html>
 
