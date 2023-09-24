@@ -64,13 +64,13 @@ class ContactDAO {
     }
 
     // Méthode pour mettre à jour un contact
-    public function update(ContactModel $contact,$contactID) {
+    public function update(ContactModel $contact) {
         //On importe notre variable global de connexion.
         global $pdo; 
         
         $sql = "UPDATE contacts SET nom = :nom, prenom = :prenom, email = :email, telephone = :telephone WHERE id = :id"; //On enregistre dans une variable notre requête SQL
 
-        $id = $contactID;
+        $id = $contact->getId();
         $nom = $contact->getNom();
         $prenom = $contact->getPrenom();
         $email= $contact->getEmail(); 

@@ -17,7 +17,7 @@ class AddContactController {
             
 
             // Création de l'instance ContactModel
-            $nouveauContact = new ContactModel($nom, $prenom, $email, $telephone);
+            $nouveauContact = new ContactModel(null,$nom, $prenom, $email, $telephone);
 
             // Utilisation de ContactDAO pour ajouter le contact
             $this->contactDAO->create($nouveauContact);
