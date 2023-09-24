@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter un Contact</title>
-    <!-- Ajoutez ici vos liens CSS ou styles pour la mise en forme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
     <h1>Ajouter un Contact</h1>
