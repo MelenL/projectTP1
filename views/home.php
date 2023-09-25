@@ -1,6 +1,7 @@
 <?php
 
     require_once '../controllers/HomeController.php';
+    require_once '../controllers/Recherche.php';
     include_once '../classes/dao/ContactDAO.php'; 
     require_once '../classes/models/ContactModel.php'; 
     require_once '../config/config.php'; 
@@ -9,7 +10,11 @@
 
     $contacts = new HomeController($contactDAO); 
 
-    $tableauContact = $contacts->index(); //Liste de tout les contacts
+    $recherche = new Recherche($contactDAO);
+
+    //$tableauContact = $contacts->index(); //Liste de tout les contacts **NON-UTILE, remplacer par RESULTATRECHERCHE**
+
+    $resultatRecherche = $recherche->recherche(); //Liste des résultat de la recherche
 ?>
 
 <!DOCTYPE html>
@@ -24,15 +29,15 @@
     <div class="container">
         <h1 class="display-6 border-bottom border-dark mb-3">Liste des Contacts</h1>
 
-        <form class="mb-3">
+        <form class="mb-3" action="home.php" method="post">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Rechercher un contact">
-                <button class="btn btn-dark" type="button">Rechercher</button>
+                <input type="text" class="form-control" id="recherche" name="recherche" placeholder="Rechercher un contact" value="<?php echo isset($_POST['recherche']) ? $_POST['recherche'] : ''; ?>">
+                <button class="btn btn-dark" type="submit">Rechercher</button>
             </div>
         </form>
 
         <div class="card mb-3">
-            <?php if (!empty($tableauContact)) : ?>
+            <?php if (!empty($resultatRecherche)) : ?>
                 <table class="table">
                     <thead class="bg-dark text-white">
                         <tr>
@@ -44,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-light">
-                        <?php foreach ($tableauContact as $contact) : ?>
+                        <?php foreach ($resultatRecherche as $contact) : ?>
                             <tr>
                                 <td><?php echo $contact['nom']; ?></td>
                                 <td><?php echo $contact['prenom']; ?></td>
