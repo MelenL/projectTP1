@@ -1,4 +1,4 @@
-<?php
+<?php 
 
     require_once '../controllers/HomeController.php';
     require_once '../controllers/Recherche.php';
