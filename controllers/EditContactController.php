@@ -1,9 +1,11 @@
 <?php
-class EditContactController {
-    private $contactDAO;
 
-    public function __construct(ContactDAO $contactDAO) {
-        $this->contactDAO = $contactDAO;
+require_once('/Applications/MAMP/htdocs/projectTP1/classes/dao/ContactDAO.php');
+require_once('/Applications/MAMP/htdocs/projectTP1/classes/models/ContactModel.php');
+include('/Applications/MAMP/htdocs/projectTP1/config/config.php');
+class EditContactController {
+
+    public function __construct() {
     }
 
     public function editContact($contactId) {
@@ -19,7 +21,11 @@ class EditContactController {
             $nouveauContact = new ContactModel($contactId,$nom, $prenom, $email, $telephone);
 
             // Utilisation de ContactDAO pour ajouter le contact
-            $this->contactDAO->update($nouveauContact);
+            global $pdo;
+            $contactDAO = new ContactDAO($pdo);
+            $contactDAO->update($nouveauContact);
+            header('Location: ../views/home.php');
+            exit();
 
         }
     }

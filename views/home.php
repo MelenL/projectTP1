@@ -1,20 +1,14 @@
 <?php
 
     require_once '../controllers/HomeController.php';
-    require_once '../controllers/Recherche.php';
-    include_once '../classes/dao/ContactDAO.php'; 
-    require_once '../classes/models/ContactModel.php'; 
-    require_once '../config/config.php'; 
+    include_once('/Applications/MAMP/htdocs/projectTP1/controllers/Recherche.php'); 
+    include '../config/config.php'; 
 
-    $contactDAO = new ContactDAO($pdo);
-
-    $contacts = new HomeController($contactDAO); 
-
-    $recherche = new Recherche($contactDAO);
-
+    $contacts = new HomeController(); 
+    $recherche = new Recherche();
     //$tableauContact = $contacts->index(); //Liste de tout les contacts **NON-UTILE, remplacer par RESULTATRECHERCHE**
-
     $resultatRecherche = $recherche->recherche(); //Liste des résultat de la recherche
+    
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +35,7 @@
                 <table class="table">
                     <thead class="bg-dark text-white">
                         <tr>
-                            <th>Nom</th>
+                            <th>Nom </th>
                             <th>Prénom</th>
                             <th>Email</th>
                             <th>Téléphone</th>  

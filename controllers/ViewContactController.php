@@ -1,15 +1,15 @@
 <?php
 class ViewContactController {
-    private $contactDAO;
 
-    public function __construct(ContactDAO $contactDAO) {
-        $this->contactDAO = $contactDAO;
+
+    public function __construct() {
     }
 
     public function viewContact($contactId) {
-        $contact = $this->contactDAO->getById($contactId);
+        global $pdo;
+        $contactDAO = new ContactDAO($pdo);
+        return $contactDAO->getById($contactId) ?? false;
 
-        return $contact ?? false; //On retourne un contact sinon faux.
     }
 }
 ?>

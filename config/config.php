@@ -14,4 +14,16 @@ try {
     // En cas d'erreur de connexion, afficher un message d'erreur
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
+/*
+function myAutoloader($className) {
+    $rootPath = $_SERVER['DOCUMENT_ROOT'];
+    $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
+    $classFile = $rootPath . '/classes/models/' . $className . '.php';
+    if (file_exists($classFile)) {
+        require_once($classFile);
+    }
+}
+// Enregistrez la fonction d'autoloading
+spl_autoload_register('myAutoloader');
+*/
 ?>

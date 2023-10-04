@@ -1,0 +1,138 @@
+2023.10.04 13:07:58 INFO  Started: Metals version 1.0.1+71-0d2739f6-SNAPSHOT in folders '/Applications/MAMP/htdocs/projectTP1' for client Visual Studio Code 1.74.3.
+oct. 04, 2023 1:07:58 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+AVERTISSEMENT: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "textDocument/didOpen",
+  "params": {
+    "textDocument": {
+      "uri": "file:///Users/alexisraulais/Desktop/tp3/src/fr/istic/prg1/tp3/Fourmis.java",
+      "languageId": "java",
+      "version": 1,
+      "text": "package fr.istic.prg1.tp3;\n\n/**\n * @author Mickaël Foursov \u003cfoursov@univ-rennes1.fr\u003e\n * @version 5.0\n * @since 2022-09-23\n * \n */\n\npublic class Fourmis {\n\n    /**\n     * @param s un terme de la suite des fourmis\n     * @pre s.length() \u003e 0\n     * @return le terme suivant de la suite des fourmis\n     */\n    public static String suivant(String s) {\n        char[] chars1 \u003d new char[s.length()];\n        String rep \u003d \"\";\n        for (int i \u003d 0; i \u003c s.length(); i++) {\n            chars1[i] \u003d s.charAt(i);\n\n            switch (chars1[i]) {\n                case \u00271\u0027:\n                    rep+\u003d\"11\";\n                    break;\n                case \u00272\u0027:\n                \trep+\u003d\"12\";\n                    break;\n                case\u00273\u0027:\n                \trep+\u003d\"13\";\n                case \u00271\u0027 \u0026\u0026 chars1[i+1]\u003d\u003d1 :\n                \trep+\u003d\"21\" \u0026\u0026 i+1;\n                case \u00271\u0027 \u0026\u0026 chars1[i+1]\u003d\u003d1 \u0026\u0026 chars1[i+2]\u003d\u003d1:\n                \trep+\u003d\"31\" \u0026\u0026 i+2;\n                case \u00272\u0027 \u0026\u0026 chars1[i+1]\u003d\u003d2 :\n                \trep+\u003d\"22\" \u0026\u0026 i+1;\n                case \u00272\u0027 \u0026\u0026 chars1[i+1]\u003d\u003d2 \u0026\u0026 chars1[i+2]\u003d\u003d2:\n                \trep+\u003d\"32\" \u0026\u0026 i+2;\n                case \u00273\u0027 \u0026\u0026 chars1[i+1]\u003d\u003d3 :\n                \trep+\u003d\"23\" \u0026\u0026 i+1;\n                case \u00273\u0027 \u0026\u0026 chars1[i+1]\u003d\u003d3 \u0026\u0026 chars1[i+2]\u003d\u003d3:\n                \trep+\u003d\"33\" \u0026\u0026 i+2;\n                default:\n                    // Gérez les autres caractères si nécessaire.\n                    break;\n            }\n        }\n\n        return rep;\n    }\n}\n"
+    }
+  }
+}
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:152)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:220)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:187)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.nio.file.NoSuchFileException: /Users/alexisraulais/Desktop/tp3/src/fr/istic/prg1/tp3/Fourmis.java
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:116)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:219)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:371)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:422)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3206)
+	at scala.meta.internal.io.PlatformFileIO$.slurp(PlatformFileIO.scala:45)
+	at scala.meta.internal.io.FileIO$.slurp(FileIO.scala:24)
+	at scala.meta.internal.metals.MetalsLspService.didOpen(MetalsLspService.scala:1003)
+	at scala.meta.internal.metals.WorkspaceLspService.didOpen(WorkspaceLspService.scala:333)
+	at scala.meta.metals.lsp.DelegatingScalaService.didOpen(DelegatingScalaService.scala:39)
+	... 16 more
+
+2023.10.04 13:08:04 WARN  Build server is not auto-connectable.
+2023.10.04 13:08:04 WARN  no build tool detected in workspace '/Applications/MAMP/htdocs/projectTP1'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.10.04 13:08:04 ERROR text document: file:///Users/alexisraulais/Desktop/tp3/src/fr/istic/prg1/tp3/Fourmis.java
+java.nio.file.NoSuchFileException: /Users/alexisraulais/Desktop/tp3/src/fr/istic/prg1/tp3/Fourmis.java
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:116)
+	at sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:219)
+	at java.nio.file.Files.newByteChannel(Files.java:371)
+	at java.nio.file.Files.newByteChannel(Files.java:422)
+	at java.nio.file.Files.readAllBytes(Files.java:3206)
+	at scala.meta.internal.io.PlatformFileIO$.slurp(PlatformFileIO.scala:45)
+	at scala.meta.internal.io.FileIO$.slurp(FileIO.scala:24)
+	at scala.meta.internal.metals.InteractiveSemanticdbs.$anonfun$textDocument$2(InteractiveSemanticdbs.scala:90)
+	at scala.Option.getOrElse(Option.scala:201)
+	at scala.meta.internal.metals.InteractiveSemanticdbs.$anonfun$textDocument$1(InteractiveSemanticdbs.scala:90)
+	at java.util.HashMap.compute(HashMap.java:1229)
+	at java.util.Collections$SynchronizedMap.compute(Collections.java:2692)
+	at scala.meta.internal.metals.InteractiveSemanticdbs.textDocument(InteractiveSemanticdbs.scala:89)
+	at scala.meta.internal.metals.InteractiveSemanticdbs.textDocument(InteractiveSemanticdbs.scala:63)
+	at scala.meta.internal.metals.AggregateSemanticdbs.loop$1(AggregateSemanticdbs.scala:30)
+	at scala.meta.internal.metals.AggregateSemanticdbs.textDocument(AggregateSemanticdbs.scala:36)
+	at scala.meta.internal.metals.CodeLensProvider.findLenses(CodeLensProvider.scala:22)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$codeLens$3(MetalsLspService.scala:1594)
+	at scala.meta.internal.metals.TimerProvider.timedThunk(TimerProvider.scala:25)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$codeLens$2(MetalsLspService.scala:1592)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:829)
+
+2023.10.04 13:08:23 INFO  no build target found for /Users/alexisraulais/Desktop/tp3/src/fr/istic/prg1/tp3/Fourmis.java. Using presentation compiler with project's scala-library version: 3.3.1
+oct. 04, 2023 1:08:23 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+GRAVE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.nio.file.NoSuchFileException: /Users/alexisraulais/Desktop/tp3/src/fr/istic/prg1/tp3/Fourmis.java
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:116)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:219)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:371)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:422)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3206)
+	at scala.meta.internal.io.PlatformFileIO$.slurp(PlatformFileIO.scala:45)
+	at scala.meta.internal.io.FileIO$.slurp(FileIO.scala:24)
+	at scala.meta.internal.mtags.ScalametaCommonEnrichments$XtensionAbsolutePath.toInput(ScalametaCommonEnrichments.scala:378)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionAbsolutePathBuffers.toInputFromBuffers(MetalsEnrichments.scala:507)
+	at scala.meta.internal.metals.SourceMapper.input$1(SourceMapper.scala:30)
+	at scala.meta.internal.metals.SourceMapper.$anonfun$pcMapping$2(SourceMapper.scala:35)
+	at scala.Option.getOrElse(Option.scala:201)
+	at scala.meta.internal.metals.SourceMapper.default$1(SourceMapper.scala:35)
+	at scala.meta.internal.metals.SourceMapper.$anonfun$pcMapping$5(SourceMapper.scala:52)
+	at scala.Option.getOrElse(Option.scala:201)
+	at scala.meta.internal.metals.SourceMapper.pcMapping(SourceMapper.scala:52)
+	at scala.meta.internal.metals.Compilers.sourceAdjustments(Compilers.scala:1074)
+	at scala.meta.internal.metals.Compilers.$anonfun$semanticTokens$2(Compilers.scala:430)
+	at scala.Option.map(Option.scala:242)
+	at scala.meta.internal.metals.Compilers.semanticTokens(Compilers.scala:426)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$semanticTokensFull$1(MetalsLspService.scala:1526)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLspService.semanticTokensFull(MetalsLspService.scala:1525)
+	at scala.meta.internal.metals.WorkspaceLspService.semanticTokensFull(WorkspaceLspService.scala:465)
+	at scala.meta.metals.lsp.DelegatingScalaService.semanticTokensFull(DelegatingScalaService.scala:208)
+	... 16 more
+
+oct. 04, 2023 1:11:24 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFOS: Unsupported notification method: $/setTrace
+2023.10.04 13:11:25 INFO  Shutting down server
+2023.10.04 13:11:25 INFO  shutting down Metals
+2023.10.04 13:11:25 INFO  Exiting server

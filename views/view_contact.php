@@ -5,10 +5,10 @@
         require_once '../config/config.php';
 
         $id= $_GET['id'];
-
+global $pdo;
         $contactDAO = new ContactDAO($pdo);
 
-        $viewContactController = new ViewContactController($contactDAO);
+        $viewContactController = new ViewContactController();
 
         $contact = $viewContactController->viewContact($id);
 ?>

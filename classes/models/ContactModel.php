@@ -1,5 +1,6 @@
 <?php
 class ContactModel {
+
     private $id;
     private $nom;
     private $prenom;
@@ -35,7 +36,6 @@ class ContactModel {
         return $this->telephone;
     }
 
-    //Setters pour chaque variable.
 
     public function setId($id) {
         $this->id = $id;

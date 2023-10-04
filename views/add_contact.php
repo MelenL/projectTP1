@@ -3,13 +3,9 @@
     include_once '../classes/dao/ContactDAO.php'; 
     require_once '../classes/models/ContactModel.php'; 
     require_once '../config/config.php';
-    
-
-
+    global $pdo;
     $contactDAO = new ContactDAO($pdo);
-
-    $addContactController = new AddContactController($contactDAO);
-
+    $addContactController = new AddContactController();
     $addContactController->addContact();
 ?>
 <!DOCTYPE html>

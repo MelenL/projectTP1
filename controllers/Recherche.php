@@ -1,13 +1,12 @@
 <?php
-class Recherche {
-    private $contactDAO;
 
-    public function __construct(ContactDAO $contactDAO) {
-        $this->contactDAO = $contactDAO;
-    }
+class Recherche {
+    public function __construct() {  }
 
     public function recherche() {
-        $tableauContact = $this->contactDAO->getAll();
+        global $pdo;
+        $contactDAO=new ContactDAO($pdo);
+        $tableauContact=$contactDAO->getAll();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $information= $_POST["recherche"];
@@ -19,7 +18,6 @@ class Recherche {
                     stripos($contact['prenom'], $information) !== false ||
                     stripos($contact['email'], $information) !== false ||
                     stripos($contact['telephone'], $information) !== false) {
-
                     $resultatRecherche[] = $contact;
                 }
             }

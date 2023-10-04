@@ -1,9 +1,7 @@
 <?php
-class AddContactController {
-    private $contactDAO;
 
-    public function __construct(ContactDAO $contactDAO) {
-        $this->contactDAO = $contactDAO;
+class AddContactController {
+    public function __construct() {
     }
 
     public function addContact() {
@@ -17,10 +15,15 @@ class AddContactController {
             
 
             // Création de l'instance ContactModel
+            global $pdo;
+            $contactDAO = new ContactDAO($pdo);            
             $nouveauContact = new ContactModel(null,$nom, $prenom, $email, $telephone);
-
+            //$contact = new models/ContactModel(null,$nom, $prenom, $email, $telephone);
             // Utilisation de ContactDAO pour ajouter le contact
-            $this->contactDAO->create($nouveauContact);
+            $contactDAO->create($nouveauContact);
+
+            header('Location: ../views/home.php');
+            exit();
 
         }
     }

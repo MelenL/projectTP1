@@ -1,4 +1,7 @@
 <?php
+
+include('/Applications/MAMP/htdocs/projectTP1/config/config.php');
+
 class ContactDAO {
     private $pdo;
 
