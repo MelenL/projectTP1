@@ -50,7 +50,7 @@
                                 <td><?php echo $contact['email']; ?></td>
                                 <td><?php echo $contact['telephone']; ?></td>
                                 <td>
-                                    <a href="view_contact.php?id=<?php echo $contact['id']; ?>" class="btn btn-success">Voir</a>
+                                    <a href="view_contact.php?page=view" class="btn btn-success">Voir</a>
                                     <a href="edit_contact.php?id=<?php echo $contact['id']; ?>" class="btn btn-warning">Modifier</a>
                                     <a href="delete_contact.php?id=<?php echo $contact['id']; ?>" class="btn btn-danger">Supprimer</a>
                                 </td>

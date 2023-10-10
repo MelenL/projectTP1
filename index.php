@@ -1,9 +1,5 @@
 <?php
 include_once 'config/config.php';
-// Obtenir l'URL demandée
-$requestUri = $_SERVER['REQUEST_URI'];
-
-$requestSegments = explode('/', trim($requestUri, '/'));
 
 // La première partie de l'URL devrait être le nom de la page
 if (!empty($requestSegments[0])) {
@@ -18,7 +14,7 @@ $controllers = [
     'delete' => 'DeleteContactController',
     'edit' => 'EditContactController',
     'Recherche' => 'Recherche',
-    'View' => 'ViewContactController',
+    'view' => 'ViewContactController',
 ];
 
 if (array_key_exists($page, $controllers)) {

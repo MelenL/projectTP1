@@ -5,7 +5,7 @@
         require_once '../config/config.php';
 
         $id= $_GET['id'];
-global $pdo;
+        global $pdo;
         $contactDAO = new ContactDAO($pdo);
 
         $viewContactController = new ViewContactController();
